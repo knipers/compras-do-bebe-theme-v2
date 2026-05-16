@@ -1,0 +1,1 @@
+<?php if ( ! defined( 'ABSPATH' ) ) { exit; } global $wp_query; if($wp_query->max_num_pages<2){return;} echo '<nav class="pagination" aria-label="Paginação">'.wp_kses_post(paginate_links(array('mid_size'=>1,'prev_text'=>'&laquo;','next_text'=>'&raquo;'))).'</nav>'; ?>
