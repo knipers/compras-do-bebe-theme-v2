@@ -1,4 +1,8 @@
-<?php if ( ! defined( 'ABSPATH' ) ) { exit; } ?>
+<?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -18,8 +22,17 @@
 			<?php endif; ?>
 		</div>
 		<button class="menu-toggle" aria-expanded="false" aria-controls="primary-menu" aria-label="Abrir menu">☰</button>
-		<nav class="main-navigation" aria-label="Menu principal">
-			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu', 'container' => false, 'fallback_cb' => false ) ); ?>
+		<nav class="main-navigation" id="site-navigation" aria-label="Menu principal">
+			<?php
+			wp_nav_menu(
+				array(
+					'theme_location' => 'primary',
+					'menu_id'        => 'primary-menu',
+					'container'      => false,
+					'fallback_cb'    => 'cdb_primary_menu_fallback',
+				)
+			);
+			?>
 		</nav>
 		<div class="header-search"><?php get_search_form(); ?></div>
 	</div>
